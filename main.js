@@ -76,7 +76,7 @@ function renderData(term = "", term2 = "") {
     if (index < 20) {
 
       container.innerHTML += `
-        <a class="card" href="country.html?cc=${item.alpha3Code}">
+        <a class="card" href="/About/country.html?cc=${item.alpha3Code}">
         <div class="upper">
             <img src="${item.flag}" alt="flag">
         </div>
