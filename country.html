@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="is_dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -7,20 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Country</title>
   <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="dark.css">
   <link rel="stylesheet" href="about.css">
 </head>
 
 <body>
   <nav class="navbar">
-    <h2>Where in the world?</h2>
-    <div>
-      <a class="btn darkmode_btn">
-        <!-- icon --> Dark mode</a>
+    <div class="nav_container">
+      <h3>Where in the world?</h3>
+      <div>
+        <a class="btn darkmode_btn">
+          <i class="far fa-moon light"></i>
+          <i class="fas fa-moon dark"></i> <span class="darkmode_text">Dark mode</span></a>
+      </div>
     </div>
   </nav>
   <div class="container">
-    <section>
-      <a href="index.html">Back</a>
+    <section class="back_btn_section">
+      <a class="btn btn_fill" onclick="previousPage()">Back</a>
     </section>
     <section class="main_section">
       <section class="left">
@@ -28,7 +32,7 @@
       </section>
       <section class="right">
         <header>
-          <h2 id="name"></h2>
+          <h1 id="name"></h1>
         </header>
         <main>
           <div class="left">
@@ -59,15 +63,20 @@
               <span class="label">Languages: </span><span class="label_value" id="languages"></span>
             </p>
           </div>
-          <footer>
-            <p>
-              <span class="label">Border Countries: </span><span class="btn_container" id="border_countries"></span>
-            </p>
-          </footer>
         </main>
+        <footer>
+          <p>
+            <h3 class="label">Border Countries: </h3><br><span class="btn_container" id="border_countries"></span>
+          </p>
+        </footer>
       </section>
     </section>
   </div>
+  <script type="application/javascript" charset="utf-8">
+    function previousPage() {
+      window.history.back();
+    }
+  </script>
   <script src="moreDetails.js"></script>
   <script src="darkmode.js"></script>
 </body>

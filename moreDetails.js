@@ -38,23 +38,33 @@ function renderMoreData() {
   });
   // console.log(flag);
   flag.setAttribute("src", country.flag);
+
   name.innerHTML = country.name;
+
   native_name.innerHTML = country.nativeName;
-  population.innerHTML = country.population;
+
+  population.innerHTML = (country.population).toLocaleString('en-US');
+
   region.innerHTML = country.region;
+
   sub_region.innerHTML = country.subregion;
+
   capital.innerHTML = country.capital;
+
   top_level_domain.innerHTML = country.topLevelDomain.join(", ");
+
   currencies.innerHTML = country.currencies.map((item) => item.name).join(", ");
+
   languages.innerHTML = country.languages.map((item) => item.name).join(", ");
+
   country.borders.map((item) => {
     const border_country = data.find((ele) => {
       return ele.alpha3Code == item;
     });
     border_countries.innerHTML += `
-        <a class="btn btn_border_country" href="country.html?cc=${border_country.alpha3Code}">${border_country.name}</a>
+        <a class="btn btn_fill" href="country.html?cc=${border_country.alpha3Code}">${border_country.name}</a>
         `;
   });
 
-  console.log(country);
+  // console.log(country);
 }

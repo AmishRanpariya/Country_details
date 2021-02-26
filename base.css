@@ -1,3 +1,4 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
 
 :root {
@@ -12,6 +13,7 @@
 
   --font-size: 16px;
   --shadow: 0 5px 30px -7px #1112;
+  --shadow-intense: 0 2px 10px -1px #1113;
   --Family: "Nunito Sans", sans-serif;
   /* --Weights: 300, 600, 800 */
 }
@@ -41,19 +43,18 @@ body {
   color: var(--col-text);
 }
 
-.container {
-  width: 90vw;
-  margin: auto;
-  display: flex;
-  gap: 3rem;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+h1 {
+  font-size: 2.2rem;
 }
 
 .label_value {
   line-height: 0.5;
   font-weight: 300;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
 }
 
 .label {
@@ -65,15 +66,54 @@ a {
   text-decoration: none;
   color: var(--col-text);
   cursor: pointer;
-  
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 .navbar {
+  box-shadow: var(--shadow);
+  background-color: var(--col-ele);
 
+}
+
+.navbar .nav_container {
+  width: 90vw;
+  margin: auto;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
-  background-color: var(--col-ele);
-  box-shadow: var(--shadow);
+  padding: 2rem 0;
+}
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+
+}
+
+.btn_fill {
+  padding: 0.5rem;
+  min-width: 7rem;
+  border-radius: 0.2rem;
+  box-shadow: var(--shadow-intense);
+  background: var(--col-ele);
+  text-align: center;
+  transition: all 0.05s ease-in-out;
+}
+
+.btn_fill:hover {
+  transform: scale(1.06);
 }

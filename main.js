@@ -1,4 +1,45 @@
-const container = document.querySelector(".container");
+const filter_switch = document.querySelector(".filter_select");
+
+const filter_option_box = document.querySelector(".filter_options");
+
+const filter_options = document.querySelectorAll(".filter_options .option");
+
+
+filter_switch.addEventListener("click", () => {
+  filter_option_box.classList.toggle("hidden");
+})
+
+
+filter_options.forEach(item => {
+  item.addEventListener("click", () => {
+    if (item.innerText == "None") {
+      filter_switch.innerText = "Filter by Region";
+    }
+    else {
+      filter_switch.innerText = item.innerText;
+    }
+    filter_option_box.classList.toggle("hidden");
+    search_and_filter();
+  });
+});
+
+
+const container = document.querySelector("#country_data_container");
+const search_input = document.querySelector("#search_input");
+search_input.addEventListener("input", (e) => {
+  e.preventDefault();
+  search_and_filter();
+});
+
+
+function search_and_filter() {
+  if (filter_switch.innerText == "Filter by Region") {
+    renderData(search_input.value);
+  } else {
+    renderData(search_input.value, filter_switch.innerText);
+  }
+}
+
 
 let data = JSON.parse(localStorage.getItem("REST_Country_api_data")) || "";
 
@@ -20,19 +61,19 @@ if (data == "") {
   renderData();
 }
 
-function renderData() {
+function renderData(term = "", term2 = "") {
 
   container.innerHTML = "";
 
-  // data = data.filter((item) => {
-  //   item = Object.values(item);
-  //   item = JSON.stringify(item).toLocaleLowerCase();
-  //   return item.includes("");
-  // });
+  tempdata = data.filter((item) => {
+    item = Object.values(item);
+    item = JSON.stringify(item).toLocaleLowerCase();
+    return (item.includes(term.toLocaleLowerCase()) && item.includes(term2.toLocaleLowerCase()));
+  });
 
 
-  data.forEach((item, index) => {
-    if (index < 4) {
+  tempdata.forEach((item, index) => {
+    if (index < 20) {
 
       container.innerHTML += `
         <a class="card" href="country.html?cc=${item.alpha3Code}">
@@ -43,7 +84,7 @@ function renderData() {
             <h3>${item.name}</h3>
             <p>
             <span class="label" >Population: </span>
-            <span class="label_value" >${item.population}</span>
+            <span class="label_value" >${(item.population).toLocaleString('en-US')}</span>
             </p>
             <p>
             <span class="label" >Region: </span>
@@ -58,5 +99,6 @@ function renderData() {
           `;
     }
   });
-  // console.log(data);
+
+
 }

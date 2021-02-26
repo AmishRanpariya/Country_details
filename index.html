@@ -8,17 +8,42 @@
   <title>Home</title>
   <link rel="stylesheet" href="base.css">
   <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="dark.css">
 </head>
 
 <body>
   <nav class="navbar">
-    <h2>Where in the world?</h2>
-    <div>
-      <a class="btn darkmode_btn">
-        <!-- icon --> Dark mode</a>
+    <div class="nav_container">
+      <h3>Where in the world?</h3>
+      <div>
+        <a class="btn darkmode_btn">
+          <i class="far fa-moon light"></i>
+          <i class="fas fa-moon dark"></i> <span class="darkmode_text">Dark mode</span></a>
+      </div>
     </div>
   </nav>
-  <div class="container">
+  <div class="container search">
+    <div class="search_box">
+      <i class="fas fa-search"></i>
+      <input type="text" name="search_input" id="search_input" value="" placeholder="Search for a country" />
+    </div>
+    <div class="filter_box">
+      <div class="filter_select">Filter by Region<i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="filter_options hidden">
+        <p class="option">None</p>
+        <p class="option">Africa</p>
+        <p class="option">Americas</p>
+        <p class="option">Asia</p>
+        <p class="option">Europe</p>
+        <p class="option">Oceania</p>
+        <p class="option">Polar</p>
+      </div>
+      <!-- <i class="fas fa-search"></i> -->
+      <!-- <input type="text" name="search_input" id="search_input" value="" placeholder="Search for a country" /> -->
+    </div>
+  </div>
+  <div class="container" id="country_data_container">
   </div>
   <script src="main.js"></script>
   <script src="darkmode.js"></script>
