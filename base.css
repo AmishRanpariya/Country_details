@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
+:root {
+  /* (Light Mode Text) */
+  --col-text: hsl(200, 15%, 8%);
+  /* (Light Mode Input) */
+  --col-input: hsl(0, 0%, 52%);
+  /* (Light Mode Background) */
+  --col-bg: hsl(0, 0%, 98%);
+  /* & Light Mode Elements */
+  --col-ele: white;
+
+  --font-size: 16px;
+  --shadow: 0 5px 30px -7px #1112;
+  --Family: "Nunito Sans", sans-serif;
+  /* --Weights: 300, 600, 800 */
+}
+
+html.is_dark {
+  /* (Dark Mode Elements) */
+  --col-ele: hsl(209, 23%, 22%);
+  /* (Dark Mode Background) */
+  --col-bg: hsl(207, 26%, 17%);
+  /* (Dark Mode Text) */
+  --col-text: white;
+
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+html,
+body {
+  font-family: var(--Family);
+  font-size: var(--font-size);
+  background-color: var(--col-bg);
+  color: var(--col-text);
+}
+
+.container {
+  width: 90vw;
+  margin: auto;
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.label_value {
+  line-height: 0.5;
+  font-weight: 300;
+}
+
+.label {
+  line-height: 0.5;
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: var(--col-text);
+  cursor: pointer;
+  
+}
+
+.navbar {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  background-color: var(--col-ele);
+  box-shadow: var(--shadow);
+}

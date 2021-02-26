@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Country</title>
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="about.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <h2>Where in the world?</h2>
+    <div>
+      <a class="btn darkmode_btn">
+        <!-- icon --> Dark mode</a>
+    </div>
+  </nav>
+  <div class="container">
+    <section>
+      <a href="index.html">Back</a>
+    </section>
+    <section class="main_section">
+      <section class="left">
+        <img id="flag" src="" alt="" />
+      </section>
+      <section class="right">
+        <header>
+          <h2 id="name"></h2>
+        </header>
+        <main>
+          <div class="left">
+            <p>
+              <span class="label">Native Name: </span><span class="label_value" id="native_name"></span>
+            </p>
+            <p>
+              <span class="label">Population: </span><span class="label_value" id="population"></span>
+            </p>
+            <p>
+              <span class="label">Region: </span><span class="label_value" id="region"></span>
+            </p>
+            <p>
+              <span class="label">Sub Region: </span><span class="label_value" id="sub_region"></span>
+            </p>
+            <p>
+              <span class="label">Capital: </span><span class="label_value" id="capital"></span>
+            </p>
+          </div>
+          <div class="right">
+            <p>
+              <span class="label">Top Level Domain: </span><span class="label_value" id="top_level_domain"></span>
+            </p>
+            <p>
+              <span class="label">Currencies: </span><span class="label_value" id="currencies"></span>
+            </p>
+            <p>
+              <span class="label">Languages: </span><span class="label_value" id="languages"></span>
+            </p>
+          </div>
+          <footer>
+            <p>
+              <span class="label">Border Countries: </span><span class="btn_container" id="border_countries"></span>
+            </p>
+          </footer>
+        </main>
+      </section>
+    </section>
+  </div>
+  <script src="moreDetails.js"></script>
+  <script src="darkmode.js"></script>
+</body>
+
+</html>

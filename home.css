@@ -1,0 +1,34 @@
+.card .upper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+a.card {
+  min-width: 280px;
+  width: 25%;
+  aspect-ratio: 3/4;
+  color: var(--col-text);
+  text-decoration: none;
+  background-color: var(--col-ele);
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  margin: 1rem 0;
+  font-weight: 800;
+}
+
+.upper {
+  overflow: hidden;
+}
+
+.lower {
+  padding-left: 1rem;
+}
