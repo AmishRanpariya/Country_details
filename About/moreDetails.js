@@ -62,7 +62,7 @@ function renderMoreData() {
       return ele.alpha3Code == item;
     });
     border_countries.innerHTML += `
-        <a class="btn btn_fill" href="country.html?cc=${border_country.alpha3Code}">${border_country.name}</a>
+        <a class="btn btn_fill" href="https://amishranpariya.github.io/Country_details/About/country.html?cc=${border_country.alpha3Code}">${border_country.name}</a>
         `;
   });
 
