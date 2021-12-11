@@ -5,15 +5,15 @@ if (urlParams.has("cc")) {
 	countryCode = urlParams.get("cc");
 }
 
-let data = JSON.parse(localStorage.getItem("REST_Country_api_data_v3.1")) || "";
+let data = JSON.parse(localStorage.getItem("REST_Country_api_data_V3.1")) || "";
 if (data == "") {
-	fetch("https://restcountries.eu/rest/v2/all")
+	fetch("https://restcountries.com/v3.1/all")
 		.then((res) => {
 			return res.json();
 		})
 		.then((res) => {
 			data = res;
-			localStorage.setItem("REST_Country_api_data_v3.1", JSON.stringify(data));
+			localStorage.setItem("REST_Country_api_data_V3.1", JSON.stringify(data));
 			renderMoreData();
 		});
 } else {
@@ -34,14 +34,15 @@ function renderMoreData() {
 	const border_countries = document.querySelector("#border_countries");
 
 	const country = data.find((item) => {
-		return item.alpha3Code == countryCode;
+		return item.cca3 == countryCode;
 	});
+	console.log(country);
 	// console.log(flag);
-	flag.setAttribute("src", country.flag);
+	flag.setAttribute("src", country.flags.svg);
 
-	name.innerHTML = country.name;
+	name.innerHTML = country.name.common;
 
-	native_name.innerHTML = country.nativeName;
+	native_name.innerHTML = country.name.official;
 
 	population.innerHTML = country.population.toLocaleString("en-US");
 
@@ -51,20 +52,25 @@ function renderMoreData() {
 
 	capital.innerHTML = country.capital;
 
-	top_level_domain.innerHTML = country.topLevelDomain.join(", ");
+	top_level_domain.innerHTML = country.tld.join(", ");
 
-	currencies.innerHTML = country.currencies.map((item) => item.name).join(", ");
+	currencies.innerHTML = Object.keys(country.currencies)
+		.map((item) => country.currencies[item].name)
+		.join(", ");
 
-	languages.innerHTML = country.languages.map((item) => item.name).join(", ");
+	languages.innerHTML = Object.keys(country.languages)
+		.map((item) => country.languages[item])
+		.join(", ");
 
 	country.borders.map((item) => {
 		const border_country = data.find((ele) => {
-			return ele.alpha3Code == item;
+			return ele.cca3 == item;
 		});
 		border_countries.innerHTML += `
-        <a class="btn btn_fill" href="https://amishranpariya.github.io/Country_details/About/country.html?cc=${border_country.alpha3Code}">${border_country.name}</a>
+        <a class="btn btn_fill" href="https://amishranpariya.github.io/Country_details/About/country.html?cc=${border_country.cca3}">${border_country.name.common}</a>
         `;
 	});
 
 	// console.log(country);
 }
+
