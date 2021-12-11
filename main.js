@@ -35,16 +35,24 @@ function search_and_filter() {
 	}
 }
 
-let data = JSON.parse(localStorage.getItem("REST_Country_api_data_v3.1")) || "";
-
+let data = JSON.parse(localStorage.getItem("REST_Country_api_data_V3.1")) || "";
+/*
+*
+*
+*
+//depreceted
+*
+*
+*
+*/
 if (data == "") {
-	fetch("https://restcountries.eu/rest/v2/all")
+	fetch("https://restcountries.com/v3.1/all")
 		.then((res) => {
 			return res.json();
 		})
 		.then((res) => {
 			data = res;
-			localStorage.setItem("REST_Country_api_data_v3.1", JSON.stringify(data));
+			localStorage.setItem("REST_Country_api_data_V3.1", JSON.stringify(data));
 			renderData();
 		})
 		.catch((err) => {
@@ -66,18 +74,19 @@ function renderData(term = "", term2 = "") {
 			item.includes(term2.toLocaleLowerCase())
 		);
 	});
-
+	//
 	tempdata.forEach((item, index) => {
 		if (index < 20) {
+			console.log(item);
 			container.innerHTML += `
         <a class="card" href="https://amishranpariya.github.io/Country_details/About/country.html?cc=${
-					item.alpha3Code
+					item.cca3
 				}">
         <div class="upper">
-            <img src="${item.flag}" alt="flag">
+            <img src="${item.flags.svg}" alt="flag">
         </div>
         <div class="lower">
-            <h3>${item.name}</h3>
+            <h3>${item.name.common}</h3>
             <p>
             <span class="label" >Population: </span>
             <span class="label_value" >${item.population.toLocaleString(
